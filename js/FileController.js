@@ -6,17 +6,25 @@ class FileController {
         this.audio_pool =[];
 
     }
+
+
     async init() {
         this.audio_segments = [];
         this.key_song_info = await FileController.textToJsonKeyInfoOld(this.path);
         this.key_song_info_length = this.key_song_info.length;
         console.log(this.key_song_info_length);
         console.log(this.key_song_info);
+        const variableManager = VariableManager.getInstance();
+        if (!variableManager.variableExists('key_info')){
+            variableManager.setVariable('key_info',this.key_song_info);
+        }
     }
+
     async preloadAudio(key_song_path, song_key_sound_postfix) {
         console.log(this.key_song_info);
         const audio_sequence = [];
         for (const info of this.key_song_info) {
+            console.log(info);
             const audio_array = [];
             for (let index in info.sound_name) {
                 const sound_name = info.sound_name[index];
@@ -49,6 +57,10 @@ class FileController {
         console.log(audio_sequence);
         console.log("--------------------------------");
         this.audio_segments = audio_sequence;
+        const variableManager = VariableManager.getInstance();
+        if (!variableManager.variableExists('audio_segments')){
+            variableManager.setVariable('audio_segments',this.audio_segments);
+        }
         return audio_sequence;
     }
 
