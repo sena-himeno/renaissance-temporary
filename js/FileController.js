@@ -14,10 +14,14 @@ class FileController {
         this.key_song_info_length = this.key_song_info.length;
         console.log(this.key_song_info_length);
         console.log(this.key_song_info);
+
+
+
         const variableManager = VariableManager.getInstance();
         if (!variableManager.variableExists('key_info')){
             variableManager.setVariable('key_info',this.key_song_info);
         }
+
     }
 
     async preloadAudio(key_song_path, song_key_sound_postfix) {
