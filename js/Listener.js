@@ -48,8 +48,8 @@ class Listener{
     async main() {
         let last_timestamp = performance.now();
         const loop = (timestamp) => {
-            if (1) {
-            // if (!this.song.paused) {
+            // if (1) {
+            if (!this.song.paused) {
                 const elapsedTime = timestamp - last_timestamp;
                 if (elapsedTime >= 20) {
                     this.executeListenerMethods();
@@ -95,7 +95,7 @@ class EventListener{
     }
 
     keyEvent(callback) {
-        this.key_event = (event) => {
+        this.key_event = (event) =>  {
             const key_pressed = event.key;
             const mapped_key = KeyBoard.checkKey(key_pressed);
             if (mapped_key !== undefined) {

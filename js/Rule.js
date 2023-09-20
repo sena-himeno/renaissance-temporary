@@ -8,6 +8,14 @@ class Rule{
 
     }
 
+        
+    pressKey(key_pressed,current_key){
+
+    }
+
+    sync(){
+
+    }
 
 
 

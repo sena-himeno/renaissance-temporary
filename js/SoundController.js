@@ -5,13 +5,14 @@ class SoundController {
         this.current_count = 0;
         this.current_time = 0;
         this.current_sound = null;
-
+        
     }
-
+    
     init() {
         this.current_count = 0;
         this.current_sound = this.key_sound_info[this.current_count].sound_name
         this.current_time = 0;
+        this.current_display_sound = this.audio_segments[this.current_count];
     }
 
     end() {
@@ -33,6 +34,7 @@ class SoundController {
                         this.audio_play(this.audio_segments[this.current_count]);
 
                     }
+                    this.current_display_sound = this.audio_segments[this.current_count];
                     this.current_count++;
                 }
 
@@ -41,7 +43,12 @@ class SoundController {
 
     }
 
+    audioPlayCurrentSound(){
+        this.audio_play(this.current_display_sound);
+    }
+
     audio_play(current_sound) {
+        console.log(current_sound);
         try {
 
             for (const audio of current_sound) {

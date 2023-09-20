@@ -45,7 +45,7 @@ class Song{
     }
 
     getCurrentTime(){
-        return this.current_song.currentTime;
+        return Math.floor(this.current_song.currentTime * 10)/10;
 
     }
 

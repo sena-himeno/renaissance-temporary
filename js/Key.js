@@ -37,12 +37,18 @@ class BasicPrintKey {
         this.initPrintKeySize();
         this.initPrintKeyPosition();
         this.initScoreValue();
+
+        this.initImgKey();
+    }
+    initImgKey(){
+        const img_key = new Image();
+        img_key.src = "/img/SongAlphabet.png"
+        this.img_key =  img_key;
     }
 
     initOffset() {
         this.vx = -3;
         this.vy = 0;
-        this.pool = [1, 2];
     }
 
     initImgKeySize() {
@@ -98,8 +104,8 @@ class PrintKey {
         this.init();
     }
 
-    draw(img_key, ctx) {
-        ctx.drawImage(img_key,
+    draw(ctx) {
+        ctx.drawImage(this.basicPrintKey.img_key,
             this.img_position_x, this.img_position_y,
             this.basicPrintKey.img_key_size_x, this.basicPrintKey.img_key_size_y,
             this.init_print_x, this.init_print_y,
@@ -109,7 +115,7 @@ class PrintKey {
 
     updateKey() {
         this.init_print_x += this.basicPrintKey.vx;
-        if (this.init_print_x <= -300) {
+        if (this.init_print_x <= - 300) {
             this.status = 0;
         }
     }
@@ -143,3 +149,4 @@ class PrintKey {
     }
 
 }
+
