@@ -4,7 +4,7 @@ class PrintKeyView{
         this.ctx = main_canvas.getContext("2d");
 
 
-        this.frames = 1000/100;
+        this.frames = 1000/200;
 
         this.vaild_key_pool = [];
         this.current_vaild_key_count = 0;

@@ -47,7 +47,7 @@ class BasicPrintKey {
     }
 
     initOffset() {
-        this.vx = -3;
+        this.vx = -4;
         this.vy = 0;
     }
 
