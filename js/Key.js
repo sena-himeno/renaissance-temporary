@@ -26,6 +26,7 @@ class BasicPrintKey {
     }
 
     static print_key_canvas_width = 600;
+    static print_key_canvas_height = 600;
 
     constructor() {
         this.init();
@@ -39,6 +40,8 @@ class BasicPrintKey {
         this.initScoreValue();
 
         this.initImgKey();
+
+        this.initEasyKeySize();
     }
     initImgKey(){
         const img_key = new Image();
@@ -48,12 +51,17 @@ class BasicPrintKey {
 
     initOffset() {
         this.vx = -4;
-        this.vy = 0;
+        this.vy = 5;
     }
 
     initImgKeySize() {
         this.img_key_size_x = 41;
         this.img_key_size_y = 35;
+    }
+
+    initEasyKeySize(){
+        this.easy_moudle_block_width = 35;
+        this.easy_moudle_block_height = 20;
     }
 
     initPrintKeySize() {
@@ -75,10 +83,13 @@ class BasicPrintKey {
             img_position_y: row_index * this.img_key_size_y
         };
     }
+    
 
     initPrintKeyPosition(key) {
         return (BasicPrintKey.init_position_y_map[key]) * 30 + 1;
     }
+
+
     matchStatus(current_x) {
         if (current_x < 0) {
             return -1;
@@ -112,6 +123,13 @@ class PrintKey {
             this.basicPrintKey.print_key_size_x, this.basicPrintKey.print_key_size_y
         );
     }
+    drawEeayModle(ctx){
+        // console.log(`${this.init_print_x} / ${this.init_print_y}`)
+        // console.log(`${BasicPrintKey.easy_moudle_block_width} / ${BasicPrintKey.easy_moudle_block_height}`)
+        ctx.fillRect(this.init_print_x,this.init_print_y,
+        this.basicPrintKey.easy_moudle_block_width,this.basicPrintKey.easy_moudle_block_height)
+
+    }
 
     updateKey() {
         this.init_print_x += this.basicPrintKey.vx;
@@ -120,12 +138,22 @@ class PrintKey {
         }
     }
 
+    updateKeyEasyMoudle() {
+        this.init_print_y += this.basicPrintKey.vy;
+        if (this.init_print_y >= BasicPrintKey.print_key_canvas_height) {
+            this.status = 0;
+        }
+        console.log(this.init_print_y);
+    }
+
     init() {
         this.basicPrintKey.initImgKeySize();
         this.initPrintKeySize();
-        this.initPrintKeyPosition();
+        // this.initPrintKeyPosition();
+        this.initPrintKeyPositionEasyMdoule();
         this.initKeyAtImgPosition();
         this.initKeyStatus();
+        
     }
 
     initKeyStatus(){
@@ -146,6 +174,11 @@ class PrintKey {
     initPrintKeyPosition() {
         this.init_print_x = BasicPrintKey.print_key_canvas_width;
         this.init_print_y = this.basicPrintKey.initPrintKeyPosition(this.key);
+    }
+    initPrintKeyPositionEasyMdoule() {
+        this.init_print_y = 0 ;
+        this.init_print_x = BasicPrintKey.init_position_y_map[this.key] * this.basicPrintKey.easy_moudle_block_width + 1;
+
     }
 
 }

@@ -28,14 +28,20 @@
 async function main(){
     
     const canvas_main = document.getElementById("main_canvas");
+    const ctxs = canvas_main.getContext("2d");
     canvas_main.width = 600;
+
     canvas_main.height = 600;
+
+    ctxs.fillStyle = "green";
+
 
 
     const  launcher = new Launcher(canvas_main);
     await launcher.init();
     launcher.main();
     launcher.event_main();
+    
 
 }
 

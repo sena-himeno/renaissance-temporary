@@ -12,6 +12,7 @@ class PrintKeyView{
 
         this.off_screen_canvas = new OffscreenCanvas(this.main_canvas.width, this.main_canvas.height);
         this.off_screen_ctx = this.off_screen_canvas.getContext('2d');
+        
 
 
     }   
@@ -20,16 +21,19 @@ class PrintKeyView{
         this.current_vaild_key_count = 0;
         this.print_key_count = 0;
 
+        this.off_screen_ctx.fillStyle='green';
+
     }
 
     offScreenCanvasDraw() {
         this.off_screen_ctx.clearRect(0, 0, this.off_screen_canvas.width, this.off_screen_canvas.height);
         this.vaild_key_pool.forEach((key) => {
-            key.updateKey();
+            key.updateKeyEasyMoudle();
             if (key.status === 0) {
                 this.removeKeyInCanvas(key);
             }
-            key.draw(this.off_screen_ctx);
+            // key.draw(this.off_screen_ctx);
+            key.drawEeayModle(this.off_screen_ctx);
         });
 
     }
