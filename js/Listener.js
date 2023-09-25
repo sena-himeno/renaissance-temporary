@@ -51,7 +51,7 @@ class Listener{
             // if (1) {
             if (!this.song.paused) {
                 const elapsedTime = timestamp - last_timestamp;
-                if (elapsedTime >= 20) {
+                if (elapsedTime >= 50) {
                     this.executeListenerMethods();
                     last_timestamp = timestamp;
                 }

@@ -59,19 +59,16 @@ class Launcher{
 
     event_main(){
 
-
-
-
         const eventListener = new EventListener();
         function getKey(key){
             console.log(key);
         }
         eventListener.keyEvent(
              (key) => {
-                console.log("_________________________________________")
+                // console.log("_________________________________________")
                 this.sc.audioPlayCurrentSound();
-                console.log(this);
-                console.log(this.current_song.getCurrentTime());
+                // console.log(this);
+                // console.log(this.current_song.getCurrentTime());
                 getKey(`+++++++++++++++++${key}++++++++++++++++++++`)
             }
         );

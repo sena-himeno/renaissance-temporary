@@ -40,7 +40,7 @@ class FileController {
                     await new Promise((resolve) => {
                         audio.addEventListener('loadeddata', () => {
                             audio_array.push(audio);
-                            console.log(`loading resources: ${audio_sequence.length} / ${this.key_song_info_length}`);
+                            // console.log(`loading resources: ${audio_sequence.length} / ${this.key_song_info_length}`);
                             resolve();
                         });
                         audio.addEventListener('error', (event) => {
@@ -58,13 +58,14 @@ class FileController {
             }
             audio_sequence.push(audio_array);
         }
-        console.log(audio_sequence);
-        console.log("--------------------------------");
         this.audio_segments = audio_sequence;
-        const variableManager = VariableManager.getInstance();
-        if (!variableManager.variableExists('audio_segments')){
-            variableManager.setVariable('audio_segments',this.audio_segments);
-        }
+
+        // console.log(audio_sequence);
+        // console.log("--------------------------------");
+        // const variableManager = VariableManager.getInstance();
+        // if (!variableManager.variableExists('audio_segments')){
+        //     variableManager.setVariable('audio_segments',this.audio_segments);
+        // }
         return audio_sequence;
     }
 

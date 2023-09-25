@@ -48,7 +48,7 @@ class SoundController {
     }
 
     audio_play(current_sound) {
-        console.log(current_sound);
+        // console.log(current_sound);
         try {
 
             for (const audio of current_sound) {

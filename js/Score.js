@@ -4,7 +4,10 @@ const MILESTONE_VALUE = 7;
 class Score{
     constructor() {
 
+
+
         this.init();
+
     }
     init() {
         this.current_milestone_value = 0;
@@ -15,6 +18,9 @@ class Score{
         this.current_time = 0;
         this.baseline = BASELINE_NORMAL;
         this.milestone_value = MILESTONE_VALUE;
+
+        this.key_count = 0;
+        this.next_key = null;
     }
     static setDifficulty(difficulty) {
         this.baseline = difficulty === "easy" ? BASELINE_EASY : BASELINE_NORMAL;
@@ -55,6 +61,8 @@ class Score{
             this.ruleInvalid();
         }
     }
+
+
 
 
 

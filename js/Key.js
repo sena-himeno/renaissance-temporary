@@ -123,13 +123,15 @@ class PrintKey {
             this.basicPrintKey.print_key_size_x, this.basicPrintKey.print_key_size_y
         );
     }
-    drawEeayModle(ctx){
+    drawEeayMoudle(ctx){
         // console.log(`${this.init_print_x} / ${this.init_print_y}`)
         // console.log(`${BasicPrintKey.easy_moudle_block_width} / ${BasicPrintKey.easy_moudle_block_height}`)
         ctx.fillRect(this.init_print_x,this.init_print_y,
         this.basicPrintKey.easy_moudle_block_width,this.basicPrintKey.easy_moudle_block_height)
 
     }
+
+
 
     updateKey() {
         this.init_print_x += this.basicPrintKey.vx;
@@ -140,10 +142,14 @@ class PrintKey {
 
     updateKeyEasyMoudle() {
         this.init_print_y += this.basicPrintKey.vy;
-        if (this.init_print_y >= BasicPrintKey.print_key_canvas_height) {
-            this.status = 0;
+        if(this.init_print_y >= BasicPrintKey.print_key_canvas_height - 35 ){
+            this.expire_key = 1;
         }
-        console.log(this.init_print_y);
+        if (this.init_print_y >= BasicPrintKey.print_key_canvas_height + 300) {
+            this.status = 0;
+
+        }
+        // console.log(this.init_print_y);
     }
 
     init() {
