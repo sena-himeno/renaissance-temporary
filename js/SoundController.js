@@ -31,7 +31,7 @@ class SoundController {
                     // console.log(this.current_sound)
                     if (1) { // --------------------------
                         // console.log("auto display key sound")
-                        this.audio_play(this.audio_segments[this.current_count]);
+                        this.audioPlayMain(this.audio_segments[this.current_count]);
 
                     }
                     this.current_display_sound = this.audio_segments[this.current_count];
@@ -50,11 +50,21 @@ class SoundController {
     audio_play(current_sound) {
         // console.log(current_sound);
         try {
-
             for (const audio of current_sound) {
-                const audio_element = new Audio();
-                audio_element.src = audio.src;
-                audio_element.play();
+                const clonedAudio = new Audio(audio.src);
+                clonedAudio.play();
+            }
+        }catch (error){
+            if(current_sound){
+                console.log("")
+            }
+        }
+    }
+    audioPlayMain(current_sound) {
+        // console.log(current_sound);
+        try {
+            for (const audio of current_sound) {
+                audio.play();
             }
         }catch (error){
             if(current_sound){
