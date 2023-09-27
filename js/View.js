@@ -31,9 +31,9 @@ class PrintKeyView{
             console.log(this.vaild_key_pool.length)
         this.updateKeyStates();
         this.vaild_key_pool.forEach((key) => {
-            key.updateKeyEasyMoudle(key);
+            key.updateKeyEasyModule(key);
             // key.draw(this.off_screen_ctx);
-            key.drawEeayMoudle(this.off_screen_ctx);
+            key.drawEasyModule(this.off_screen_ctx);
         });
         }
 

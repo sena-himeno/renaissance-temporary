@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="main()" >test </button>
+    <center>
+        <canvas style="float: right; width: 80%;height: 600px; " id="result_canvas"></canvas>
+    </center>
+
+</body>
+</html>
+<script type="text/javascript" src="./PrintResult.js"></script>
+<script> 
+    function main(){
+
+        const result_canvas = document.getElementById("result_canvas");
+        result_canvas.width = 600;
+        result_canvas.height = 600;
+        console.log(result_canvas);
+        const print_view = new  PrintResult(result_canvas,null);
+        print_view.test();
+    }
+
+</script>

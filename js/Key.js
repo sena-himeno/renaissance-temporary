@@ -60,8 +60,8 @@ class BasicPrintKey {
     }
 
     initEasyKeySize(){
-        this.easy_moudle_block_width = 35;
-        this.easy_moudle_block_height = 20;
+        this.easy_module_block_width = 35;
+        this.easy_module_block_height = 20;
     }
 
     initPrintKeySize() {
@@ -123,11 +123,11 @@ class PrintKey {
             this.basicPrintKey.print_key_size_x, this.basicPrintKey.print_key_size_y
         );
     }
-    drawEeayMoudle(ctx){
+    drawEasyModule(ctx){
         // console.log(`${this.init_print_x} / ${this.init_print_y}`)
-        // console.log(`${BasicPrintKey.easy_moudle_block_width} / ${BasicPrintKey.easy_moudle_block_height}`)
+        // console.log(`${BasicPrintKey.easy_module_block_width} / ${BasicPrintKey.easy_module_block_height}`)
         ctx.fillRect(this.init_print_x,this.init_print_y,
-        this.basicPrintKey.easy_moudle_block_width,this.basicPrintKey.easy_moudle_block_height)
+        this.basicPrintKey.easy_module_block_width,this.basicPrintKey.easy_module_block_height)
 
     }
 
@@ -140,7 +140,7 @@ class PrintKey {
         }
     }
 
-    updateKeyEasyMoudle() {
+    updateKeyEasyModule() {
         this.init_print_y += this.basicPrintKey.vy;
         if(this.init_print_y >= BasicPrintKey.print_key_canvas_height - 35 ){
             this.expire_key = 1;
@@ -156,7 +156,7 @@ class PrintKey {
         this.basicPrintKey.initImgKeySize();
         this.initPrintKeySize();
         // this.initPrintKeyPosition();
-        this.initPrintKeyPositionEasyMdoule();
+        this.initPrintKeyPositionEasyModule();
         this.initKeyAtImgPosition();
         this.initKeyStatus();
         
@@ -181,9 +181,9 @@ class PrintKey {
         this.init_print_x = BasicPrintKey.print_key_canvas_width;
         this.init_print_y = this.basicPrintKey.initPrintKeyPosition(this.key);
     }
-    initPrintKeyPositionEasyMdoule() {
+    initPrintKeyPositionEasyModule() {
         this.init_print_y = 0 ;
-        this.init_print_x = BasicPrintKey.init_position_y_map[this.key] * this.basicPrintKey.easy_moudle_block_width + 1;
+        this.init_print_x = BasicPrintKey.init_position_y_map[this.key] * this.basicPrintKey.easy_module_block_width + 1;
 
     }
 
